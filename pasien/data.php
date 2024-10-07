@@ -12,8 +12,8 @@
 		</h4>
 
 		<div class="table-responsive">
-			<table class="table table-bordered table-striped table-hover" id="pasien">
-				<thead>
+			<table class="table table-bordered table-striped table-hover" id="pasien" style="background-color:#ECE7EB;">
+				<thead style="background-color:#CBC3CC;">
 					<tr>
 						<th>Nomor Identitas</th>
 						<th>Nama Pasien</th>

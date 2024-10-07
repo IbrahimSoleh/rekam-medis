@@ -21,7 +21,7 @@
 		</div>
 		<div class="table-responsive">
 			<table class="table table-bordered table-striped table-hover">
-				<thead>
+				<thead style="background-color:#CBC3CC;">
 					<tr>
 						<th>No.</th>
 						<th>Nama Obat</th>
@@ -30,7 +30,7 @@
 					</tr>
 				</thead>
 
-				<tbody>
+				<tbody style="background-color:#ECE7EB;">
 					<?php
 						$batas = 5;
 						$hal = @$_GET['hal'];

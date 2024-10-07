@@ -3,7 +3,7 @@
 $sql_details = array(
     'user' => 'root',
     'pass' => '',
-    'db'   => 'rumahsakit',
+    'db'   => 'db_rekam_medis',
     'host' => 'localhost'
 );
 

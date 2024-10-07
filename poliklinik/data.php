@@ -13,7 +13,7 @@
 		<form method="post" name="proses">
 			<div class="table-responsive">
 				<table class="table table-bordered table-striped table-hover">
-					<thead>
+					<thead style="background-color:#CBC3CC;">
 						<tr>
 							<th>No.</th>
 							<th>Nama Poli</th>
@@ -25,7 +25,7 @@
 							</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody style="background-color:#ECE7EB;">
 					<?php
 						$no = 1;
 						$sql_poli = mysqli_query($con, "SELECT * FROM tb_poliklinik ORDER BY nama_poli ASC") or die(mysqli_error($con));

@@ -13,7 +13,7 @@
 		<form method="post" name="proses">
 			<div class="table-responsive">
 				<table class="table table-bordered table-striped table-hover" id="rekammedis">
-					<thead>
+					<thead style="background-color:#CBC3CC;">
 						<tr>
 							<th>No.</th>
 							<th>Tanggal Periksa</th>
@@ -26,7 +26,7 @@
 							<th><i class="glyphicon glyphicon-cog"></i></th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody style="background-color:#ECE7EB;">
 						<?php
 						$no = 1;
 						$query = "SELECT * FROM tb_rekammedis
