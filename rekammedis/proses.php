@@ -12,15 +12,17 @@ if(isset($_POST['add'])){
 	$keluhan = trim(mysqli_real_escape_string($con, $_POST['keluhan']));
 	$dokter = trim(mysqli_real_escape_string($con, $_POST['dokter']));
 	$diagnosa = trim(mysqli_real_escape_string($con, $_POST['diagnosa']));
+	$no_rm = trim(mysqli_real_escape_string($con, $_POST['no_rm']));
+	$obat = trim(mysqli_real_escape_string($con, $_POST['obat']));
 
 	// insert ke tb_rekammedis
-	mysqli_query($con, "INSERT INTO tb_rekammedis VALUES('$uuid', '$tgl', '$poli', '$pasien', '$keluhan', '$dokter', '$diagnosa')") or die(mysqli_error($con));
+	mysqli_query($con, "INSERT INTO tb_rekammedis VALUES('$uuid', '$tgl', '$poli', '$pasien', '$keluhan', '$dokter', '$diagnosa', '$no_rm', '$obat')") or die(mysqli_error($con));
 
-	// mendeklarasikan obat
-	$obat = $_POST['obat'];
-	foreach($obat as $obat){
-		mysqli_query($con, "INSERT INTO tb_rm_obat VALUES('', '$uuid', '$obat')") or die(mysqli_error($con));
-	}
+	// // mendeklarasikan obat
+	// $obat = $_POST['obat'];
+	// foreach($obat as $obat){
+	// 	mysqli_query($con, "INSERT INTO tb_rm_obat VALUES('', '$uuid', '$obat')") or die(mysqli_error($con));
+	// }
 
 	echo "<script>alert('Data berhasil ditambahkan'); window.location='data.php';</script>";
 }
@@ -33,15 +35,17 @@ else if(isset($_POST['edit'])){
 	$keluhan = trim(mysqli_real_escape_string($con, $_POST['keluhan']));
 	$dokter = trim(mysqli_real_escape_string($con, $_POST['dokter']));
 	$diagnosa = trim(mysqli_real_escape_string($con, $_POST['diagnosa']));
+	$no_rm = trim(mysqli_real_escape_string($con, $_POST['no_rm']));
+	$obat = trim(mysqli_real_escape_string($con, $_POST['obat']));
 
 	//update ke tabel rekammedis
-	mysqli_query($con, "UPDATE tb_rekammedis SET tgl_periksa = '$tgl', id_poli = '$poli', id_pasien = '$pasien', keluhan = '$keluhan', id_dokter = '$dokter', diagnosa = '$diagnosa' WHERE id_rm = '$id'") or die(mysqli_error($con));
+	mysqli_query($con, "UPDATE tb_rekammedis SET tgl_periksa = '$tgl', id_poli = '$poli', id_pasien = '$pasien', keluhan = '$keluhan', id_dokter = '$dokter', diagnosa = '$diagnosa', no_rm = '$no_rm',id_obat = '$obat' WHERE id_rm = '$id'") or die(mysqli_error($con));
 
 	// mendeklarasikan obat
-	$obat = $_POST['obat'];
-	mysqli_query($con, "DELETE FROM tb_rm_obat WHERE id_rm = '$id'") or die(mysqli_error($con));
-	foreach($obat as $obat){
-		mysqli_query($con, "INSERT INTO tb_rm_obat VALUES('', '$id', '$obat')") or die(mysqli_error($con));
-	}
+	// $obat = $_POST['obat'];
+	// mysqli_query($con, "DELETE FROM tb_rm_obat WHERE id_rm = '$id'") or die(mysqli_error($con));
+	// foreach($obat as $obat){
+	// 	mysqli_query($con, "INSERT INTO tb_rm_obat VALUES('', '$id', '$obat')") or die(mysqli_error($con));
+	// }
 	echo "<script>alert('Data berhasil diubah'); window.location='data.php';</script>";
 }

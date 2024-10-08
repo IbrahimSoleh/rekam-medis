@@ -129,17 +129,19 @@ CREATE TABLE `tb_rekammedis` (
   `id_pasien` varchar(50) NOT NULL,
   `keluhan` text NOT NULL,
   `id_dokter` varchar(50) NOT NULL,
-  `diagnosa` text NOT NULL
+  `diagnosa` text NOT NULL,
+  `no_rm` varchar(50) NOT NULL,
+  `id_obat` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_rekammedis`
 --
 
-INSERT INTO `tb_rekammedis` (`id_rm`, `tgl_periksa`, `id_poli`, `id_pasien`, `keluhan`, `id_dokter`, `diagnosa`) VALUES
-('4217a6bf-4875-426e-84a2-5afd4b965705', '2020-06-03', '9b5ce7e9-a400-40e4-90cd-8134dc8009ca', '118725fd-44e9-493a-bade-8d0d80040d86', '<p>pusing</p>\r\n', '8de1a500-3663-457b-9a27-1644e0c17fa2', 'migrain'),
-('60a8da1c-e31c-4dd1-9d5c-6bc2bb685543', '2020-06-03', '0e4998e7-4876-4d01-8cfd-839fe838b5f4', '31fc8a27-c69a-460b-8bd7-2e4221a3293f', '<p>sakit perut</p>\r\n', '8de1a500-3663-457b-9a27-1644e0c17fa2', 'diare'),
-('64224cd1-3d5e-45cd-a0af-05ef466a2cde', '2020-06-04', '9b5ce7e9-a400-40e4-90cd-8134dc8009ca', '329845e8-fe19-4785-bf9b-32f1d890e5fd', '<p>lemas</p>\r\n', 'e6bfe5eb-02b5-4ec1-b7f7-ce2e41547700', 'animea');
+INSERT INTO `tb_rekammedis` (`id_rm`, `tgl_periksa`, `id_poli`, `id_pasien`, `keluhan`, `id_dokter`, `diagnosa`, `no_rm`, `id_obat`) VALUES
+('4217a6bf-4875-426e-84a2-5afd4b965705', '2020-06-03', '9b5ce7e9-a400-40e4-90cd-8134dc8009ca', '118725fd-44e9-493a-bade-8d0d80040d86', '<p>pusing</p>\r\n', '8de1a500-3663-457b-9a27-1644e0c17fa2', 'migrain', '222.222.22', '403abc2b-2ef9-4a4e-96d2-b4d83a6a4d2b'),
+('60a8da1c-e31c-4dd1-9d5c-6bc2bb685543', '2020-06-03', '0e4998e7-4876-4d01-8cfd-839fe838b5f4', '31fc8a27-c69a-460b-8bd7-2e4221a3293f', '<p>sakit perut</p>\r\n', '8de1a500-3663-457b-9a27-1644e0c17fa2', 'diare', '111.222.333', '4d328bb7-8e21-4812-9686-cbfee056f0f3'),
+('64224cd1-3d5e-45cd-a0af-05ef466a2cde', '2020-06-04', '9b5ce7e9-a400-40e4-90cd-8134dc8009ca', '329845e8-fe19-4785-bf9b-32f1d890e5fd', '<p>lemas</p>\r\n', 'e6bfe5eb-02b5-4ec1-b7f7-ce2e41547700', 'animea', '33.44.99843', 'e2ea0e7e-04cf-4b41-8a87-04add912f993');
 
 -- --------------------------------------------------------
 
@@ -147,24 +149,24 @@ INSERT INTO `tb_rekammedis` (`id_rm`, `tgl_periksa`, `id_poli`, `id_pasien`, `ke
 -- Table structure for table `tb_rm_obat`
 --
 
-CREATE TABLE `tb_rm_obat` (
-  `id` int(10) NOT NULL,
-  `id_rm` varchar(50) NOT NULL,
-  `id_obat` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+-- CREATE TABLE `tb_rm_obat` (
+--   `id` int(10) NOT NULL,
+--   `id_rm` varchar(50) NOT NULL,
+--   `id_obat` varchar(50) NOT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_rm_obat`
 --
 
-INSERT INTO `tb_rm_obat` (`id`, `id_rm`, `id_obat`) VALUES
-(11, '64224cd1-3d5e-45cd-a0af-05ef466a2cde', '403abc2b-2ef9-4a4e-96d2-b4d83a6a4d2b'),
-(12, '64224cd1-3d5e-45cd-a0af-05ef466a2cde', '4d328bb7-8e21-4812-9686-cbfee056f0f3'),
-(13, '4217a6bf-4875-426e-84a2-5afd4b965705', '403abc2b-2ef9-4a4e-96d2-b4d83a6a4d2b'),
-(14, '4217a6bf-4875-426e-84a2-5afd4b965705', '43288b0b-661f-44ab-a86d-e149a1c529a9'),
-(15, '60a8da1c-e31c-4dd1-9d5c-6bc2bb685543', '403abc2b-2ef9-4a4e-96d2-b4d83a6a4d2b'),
-(16, '60a8da1c-e31c-4dd1-9d5c-6bc2bb685543', '4d328bb7-8e21-4812-9686-cbfee056f0f3'),
-(17, '60a8da1c-e31c-4dd1-9d5c-6bc2bb685543', 'e2ea0e7e-04cf-4b41-8a87-04add912f993');
+-- INSERT INTO `tb_rm_obat` (`id`, `id_rm`, `id_obat`) VALUES
+-- (11, '64224cd1-3d5e-45cd-a0af-05ef466a2cde', '403abc2b-2ef9-4a4e-96d2-b4d83a6a4d2b'),
+-- (12, '64224cd1-3d5e-45cd-a0af-05ef466a2cde', '4d328bb7-8e21-4812-9686-cbfee056f0f3'),
+-- (13, '4217a6bf-4875-426e-84a2-5afd4b965705', '403abc2b-2ef9-4a4e-96d2-b4d83a6a4d2b'),
+-- (14, '4217a6bf-4875-426e-84a2-5afd4b965705', '43288b0b-661f-44ab-a86d-e149a1c529a9'),
+-- (15, '60a8da1c-e31c-4dd1-9d5c-6bc2bb685543', '403abc2b-2ef9-4a4e-96d2-b4d83a6a4d2b'),
+-- (16, '60a8da1c-e31c-4dd1-9d5c-6bc2bb685543', '4d328bb7-8e21-4812-9686-cbfee056f0f3'),
+-- (17, '60a8da1c-e31c-4dd1-9d5c-6bc2bb685543', 'e2ea0e7e-04cf-4b41-8a87-04add912f993');
 
 -- --------------------------------------------------------
 
@@ -185,8 +187,8 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `nama_user`, `username`, `password`, `level`) VALUES
-('', 'Yola', 'yola1996', 'a9573217994b9a6b35bce220e5a670a86a2b8b4f', '1'),
-('98731216336846848', 'Arif Rusman', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', '1');
+('', 'ibra', 'ibraaa', 'a9573217994b9a6b35bce220e5a670a86a2b8b4f', '1'),
+('98731216336846848', 'ibraa', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', '1');
 
 --
 -- Indexes for dumped tables
@@ -204,6 +206,7 @@ ALTER TABLE `tb_dokter`
 --
 ALTER TABLE `tb_obat`
   ADD PRIMARY KEY (`id_obat`);
+  ADD KEY `id_obat` (`id_obat`);
 
 --
 -- Indexes for table `tb_pasien`
@@ -227,14 +230,15 @@ ALTER TABLE `tb_rekammedis`
   ADD KEY `tb_rekammedis_ibfk_1` (`id_pasien`),
   ADD KEY `tb_rekammedis_ibfk_2` (`id_dokter`),
   ADD KEY `tb_rekammedis_ibfk_3` (`id_poli`);
+  ADD KEY `tb_rekammedis_ibfk_4` (`id_obat`);
 
 --
 -- Indexes for table `tb_rm_obat`
 --
-ALTER TABLE `tb_rm_obat`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_rm` (`id_rm`),
-  ADD KEY `id_obat` (`id_obat`);
+-- ALTER TABLE `tb_rm_obat`
+--   ADD PRIMARY KEY (`id`),
+--   ADD KEY `id_rm` (`id_rm`),
+--   ADD KEY `id_obat` (`id_obat`);
 
 --
 -- Indexes for table `tb_user`
@@ -249,8 +253,8 @@ ALTER TABLE `tb_user`
 --
 -- AUTO_INCREMENT for table `tb_rm_obat`
 --
-ALTER TABLE `tb_rm_obat`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+-- ALTER TABLE `tb_rm_obat`
+--   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
@@ -262,15 +266,16 @@ ALTER TABLE `tb_rm_obat`
 ALTER TABLE `tb_rekammedis`
   ADD CONSTRAINT `tb_rekammedis_ibfk_1` FOREIGN KEY (`id_pasien`) REFERENCES `tb_pasien` (`id_pasien`),
   ADD CONSTRAINT `tb_rekammedis_ibfk_2` FOREIGN KEY (`id_dokter`) REFERENCES `tb_dokter` (`id_dokter`),
-  ADD CONSTRAINT `tb_rekammedis_ibfk_3` FOREIGN KEY (`id_poli`) REFERENCES `tb_poliklinik` (`id_poli`);
+  ADD CONSTRAINT `tb_rekammedis_ibfk_3` FOREIGN KEY (`id_poli`) REFERENCES `tb_poliklinik` (`id_poli`);       
+  ADD CONSTRAINT `tb_rekammedis_ibfk_4` FOREIGN KEY (`id_obat`) REFERENCES `tb_obat` (`id_obat`);       
+-- COMMIT;
 
 --
 -- Constraints for table `tb_rm_obat`
 --
-ALTER TABLE `tb_rm_obat`
-  ADD CONSTRAINT `tb_rm_obat_ibfk_1` FOREIGN KEY (`id_rm`) REFERENCES `tb_rekammedis` (`id_rm`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_rm_obat_ibfk_2` FOREIGN KEY (`id_obat`) REFERENCES `tb_obat` (`id_obat`);
-COMMIT;
+-- ALTER TABLE `tb_rm_obat`
+--   ADD CONSTRAINT `tb_rm_obat_ibfk_1` FOREIGN KEY (`id_rm`) REFERENCES `tb_rekammedis` (`id_rm`) ON DELETE CASCADE ON UPDATE CASCADE,
+--   ADD CONSTRAINT `tb_rm_obat_ibfk_2` FOREIGN KEY (`id_obat`) REFERENCES `tb_obat` (`id_obat`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

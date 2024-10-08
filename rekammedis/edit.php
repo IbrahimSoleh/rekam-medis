@@ -15,7 +15,7 @@ include_once('../_header.php');
 		<div class="col-lg-6 col-lg-offset-3">
 			<?php
 			$id = @$_GET['id'];
-			$sql_rekammedis = mysqli_query($con, "SELECT * FROM tb_rekammedis INNER JOIN tb_poliklinik ON tb_rekammedis.id_poli = tb_poliklinik.id_poli INNER JOIN tb_pasien ON tb_rekammedis.id_pasien = tb_pasien.id_pasien INNER JOIN tb_dokter ON tb_rekammedis.id_dokter = tb_dokter.id_dokter WHERE id_rm ='$id'") or die(mysqli_error($con));
+			$sql_rekammedis = mysqli_query($con, "SELECT * FROM tb_rekammedis INNER JOIN tb_poliklinik ON tb_rekammedis.id_poli = tb_poliklinik.id_poli INNER JOIN tb_pasien ON tb_rekammedis.id_pasien = tb_pasien.id_pasien INNER JOIN tb_dokter ON tb_rekammedis.id_dokter = tb_dokter.id_dokter INNER JOIN tb_obat ON tb_rekammedis.id_obat = tb_obat.id_obat WHERE id_rm ='$id'") or die(mysqli_error($con));
 			$data = mysqli_fetch_array($sql_rekammedis);
 			?>
 			<form action="proses.php" method="post">
@@ -85,33 +85,24 @@ include_once('../_header.php');
 					<textarea name="diagnosa" id="diagnosa" class="form-control" required="" rows="4"><?= $data['diagnosa']; ?></textarea>
 				</div>
 				<div class="form-group">
-					<label for="obat">Obat</label>
-
-					<?php
-						$sql_rm_obat = mysqli_query($con, "SELECT * FROM tb_rm_obat WHERE id_rm='$id'") or die(mysqli_error($con));
-						while($data_rm_obat = mysqli_fetch_array($sql_rm_obat)){
-							$selected_obat[] = $data_rm_obat['id_obat'];
-						}
-					?>
-					
-					<select multiple="" size="7" name="obat[]" id="obat" class="form-control" required="">
-
+					<label for="no_rm">NO-RM</label>
+					<textarea name="no_rm" id="no_rm" class="form-control" required="" rows="4"><?= $data['diagnosa']; ?></textarea>
+				</div>
+				<div class="form-group">
+					<label for="obat">Nama obat</label>
+					<select name="obat" id="obat" class="form-control" required="">
+						<option value="">- Pilih -</option>
 						<?php
-							$sql_obat = mysqli_query($con, "SELECT * FROM tb_obat") or die(mysqli_error($con));
-							while($data_obat = mysqli_fetch_array($sql_obat)){ ?>
-
-								<option value="<?= $data_obat['id_obat']; ?>" <?php for($i = 0; $i < count($selected_obat); $i++){
-									if($data_obat['id_obat'] == $selected_obat[$i]){
-										echo "selected";
-									}
-								} ?>>
-								<?= $data_obat['nama_obat']; ?>
-								</option>
-
-							<?php
+						$sql_obat = mysqli_query($con, "SELECT * FROM tb_obat") or die(mysqli_error($con));
+						while($data_obat = mysqli_fetch_array($sql_obat)){
+							if($data['id_obat'] == $data_obat['id_obat']){
+								$select = "selected";
 							}
-						?>
-
+							else{
+								$select = "";
+							}
+							echo '<option '.$select.' value="'.$data_obat['id_obat'].'">'.$data_obat['nama_obat'].'</option>';
+						} ?>
 					</select>
 				</div>
 				<div class="form-group">

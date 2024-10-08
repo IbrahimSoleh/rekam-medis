@@ -60,8 +60,13 @@ include_once('../_header.php');
 					<textarea name="diagnosa" id="diagnosa" class="form-control" required="" rows="4"></textarea>
 				</div>
 				<div class="form-group">
-					<label for="obat">Obat</label>
-					<select multiple="" size="7" name="obat[]" id="obat" class="form-control" required="">
+					<label for="no_rm">NO-RM</label>
+					<textarea name="no_rm" id="no_rm" class="form-control" required="" rows="4"></textarea>
+				</div>
+				<div class="form-group">
+					<label for="obat">Nama obat</label>
+					<select name="obat" id="obat" class="form-control" required="">
+						<option value="">- Pilih -</option>
 						<?php
 						$sql_obat = mysqli_query($con, "SELECT * FROM tb_obat") or die(mysqli_error($con));
 						while($data_obat = mysqli_fetch_array($sql_obat)){
@@ -69,6 +74,16 @@ include_once('../_header.php');
 						} ?>
 					</select>
 				</div>
+				<!-- <div class="form-group">
+					<label for="obat">Obat</label>
+					<select multiple="" size="7" name="obat[]" id="obat" class="form-control" required="">
+						<?php
+						// $sql_obat = mysqli_query($con, "SELECT * FROM tb_obat") or die(mysqli_error($con));
+						// while($data_obat = mysqli_fetch_array($sql_obat)){
+							// echo '<option value="'.$data_obat['id_obat'].'">'.$data_obat['nama_obat'].'</option>';
+						// } ?> 
+					</select>
+				</div> -->
 				<div class="form-group">
 					<input type="reset" name="reset" value="Reset" class="btn btn-default">
 					<input type="submit" name="add" value="Simpan" class="btn btn-success">
